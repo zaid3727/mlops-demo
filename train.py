@@ -16,7 +16,7 @@ clf.fit(X, y)
 # Set experiment
 mlflow.set_experiment("Iris_Classifier_Exp")
 
-# Define input example (shape must match model input)
+# Define input example
 input_example = np.array([X[0]])  # or: np.array([[5.1, 3.5, 1.4, 0.2]])
 
 # Start MLflow logging
@@ -29,7 +29,7 @@ with mlflow.start_run():
     mlflow.log_param("model_type", "RandomForest")
     mlflow.log_metric("accuracy", clf.score(X, y))
 
-# Save model to local disk
+# Save model 
 joblib.dump(clf, "iris_model.pkl")
 print("Model trained, logged, and saved.")
 
